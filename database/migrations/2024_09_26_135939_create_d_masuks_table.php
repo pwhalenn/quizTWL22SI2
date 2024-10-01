@@ -13,16 +13,12 @@ return new class extends Migration
     {
         Schema::create('d_masuks', function (Blueprint $table) {
             $table->id();
-            $table->char("id_masuk", 6)->primary();
+            $table->char("id_masuk", 6)->unique();
             $table->date("kd_masuk", 6)->foreign();
             $table->char("kd_barang_beli", 6)->foreign();
             $table->integer("jumlah");
             $table->integer("subtotal");
             $table->timestamps();
-
-            $table->foreign('kd_masuk')
-                ->references('kd_masuk')
-                ->onDelete('cascade');
         });
     }
 

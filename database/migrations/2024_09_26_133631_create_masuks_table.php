@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('masuks', function (Blueprint $table) {
             $table->id();
-            $table->char("kd_masuk", 6)->primary();
+            $table->char("kd_masuk", 6)->unique();
             $table->date("tgl_masuk");
             $table->char("kd_user", 6)->foreign();
             $table->char("kd_supplier", 6)->foreign();

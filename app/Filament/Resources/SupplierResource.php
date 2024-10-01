@@ -28,11 +28,11 @@ class SupplierResource extends Resource
                 ->required()
                 ->maxLength(6),
                 Forms\Components\TextInput::make('nama_supplier')
-                ->label('Kode Supplier')
+                ->label('Nama Supplier')
                 ->required()
                 ->maxLength(15),
                 Forms\Components\TextInput::make('alamat')
-                ->label('alamat')
+                ->label('Alamat')
                 ->required()
                 ->maxLength(50),
             ]);

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
-            $table->char("kd_supplier", 6)->primary();
-            $table->char("nama_supplier", 15)->unique();
-            $table->char("alamat", 50);
+            $table->char("kd_supplier", 6)->unique();
+            $table->text("nama_supplier", 15)->unique();
+            $table->text("alamat", 50);
             $table->timestamps();
         });
     }

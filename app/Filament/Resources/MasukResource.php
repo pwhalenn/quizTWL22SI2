@@ -35,10 +35,10 @@ class MasukResource extends Resource
                 ->label('Kode User')
                 ->required()
                 ->maxLength(6),
-                Forms\Components\TextInput::make('kd_supplier')
+                Forms\Components\Select::make('kd_supplier')
                 ->label('Kode Supplier')
-                ->required()
-                ->maxLength(6),
+                ->options(supplier::all()->pluck('kd_supplier', 'id'))
+                ->searchable(),
                 Forms\Components\TextInput::make('total_masuk')
                 ->label('Total Masuk')
                 ->required()

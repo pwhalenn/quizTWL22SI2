@@ -28,7 +28,7 @@ class BarangResource extends Resource
                 ->required()
                 ->maxLength(6),
                 Forms\Components\TextInput::make('nama_barang')
-                ->label('Kode Barang')
+                ->label('Nama Barang')
                 ->required()
                 ->maxLength(25),
                 Forms\Components\TextInput::make('satuan')

@@ -28,11 +28,8 @@ class DMasukResource extends Resource
                 ->required()
                 ->maxLength(2),
                 Forms\Components\Select::make('kd_masuk')
-                ->options([
-                    'Fragile' => 'Fragile',
-                    'Not Fragile' => 'Not Fragile',
-                ])
-                ->native(false)
+                ->label('Kode Masuk')
+                ->options(masuk::all()->pluck('kd_masuk', 'id'))
                 ->searchable(),
                 Forms\Components\TextInput::make('kd_barang_beli')
                 ->label('Kode Barang Beli')
