@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\MasukResource\Pages;
 use App\Filament\Resources\MasukResource\RelationManagers;
 use App\Models\Masuk;
+use App\Models\User;
+use App\Models\Supplier;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -31,13 +33,13 @@ class MasukResource extends Resource
                 ->label('Tanggal Masuk')
                 ->required()
                 ->maxLength(15),
-                Forms\Components\TextInput::make('kd_user')
-                ->label('Kode User')
-                ->required()
-                ->maxLength(6),
+                Forms\Components\Select::make('user_id')
+                ->label('User ID')
+                ->options(User::all()->pluck('name', 'id'))
+                ->searchable(),
                 Forms\Components\Select::make('kd_supplier')
                 ->label('Kode Supplier')
-                ->options(supplier::all()->pluck('kd_supplier', 'id'))
+                ->options(Supplier::all()->pluck('kd_supplier', 'id'))
                 ->searchable(),
                 Forms\Components\TextInput::make('total_masuk')
                 ->label('Total Masuk')
@@ -52,7 +54,7 @@ class MasukResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('kd_masuk')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('tgl_masuk')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('kd_user')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('user_id')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('kd_supplier')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('total_masuk')->sortable()->searchable(),
             ])

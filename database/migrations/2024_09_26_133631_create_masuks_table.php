@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->char("kd_masuk", 6)->unique();
             $table->date("tgl_masuk");
-            $table->char("kd_user", 6)->foreign();
+            $table->foreignId("user_id")->constrained('users')->nullable();
             $table->char("kd_supplier", 6)->foreign();
             $table->integer("total_masuk")->unique();
             $table->timestamps();

@@ -15,11 +15,11 @@ class supplierSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create('id_ID');
-        for($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             DB::table('suppliers')->insert([
                 'kd_supplier' => 'KSUP' . $i,
-                'nama_supplier' => $faker -> name,
-                'alamat'=> $faker -> text(50),
+                'nama_supplier' => $faker->name,
+                'alamat' => $faker->streetAddress
             ]);
         }
     }

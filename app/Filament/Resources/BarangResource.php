@@ -31,18 +31,6 @@ class BarangResource extends Resource
                 ->label('Nama Barang')
                 ->required()
                 ->maxLength(25),
-                Forms\Components\TextInput::make('satuan')
-                ->label('Satuan')
-                ->required()
-                ->maxLength(10),
-                Forms\Components\TextInput::make('harga_jual')
-                ->label('Harga Jual')
-                ->required()
-                ->maxLength(15),
-                Forms\Components\TextInput::make('harga_beli')
-                ->label('Harga Beli')
-                ->required()
-                ->maxLength(15),
                 Forms\Components\Select::make('satuan')
                 ->options([
                     'dus' => 'dus',
@@ -51,6 +39,17 @@ class BarangResource extends Resource
                 ])
                 ->native(false)
                 ->searchable(),
+                Forms\Components\TextInput::make('harga_jual')
+                ->label('Harga Jual')
+                ->required()
+                ->maxLength(15),
+                Forms\Components\TextInput::make('harga_beli')
+                ->label('Harga Beli')
+                ->required()
+                ->maxLength(15),
+                Forms\Components\TextInput::make('stok')
+                ->label('Stok')
+                ->required(),
                 Forms\Components\Select::make('status')
                 ->options([
                     'Fragile' => 'Fragile',

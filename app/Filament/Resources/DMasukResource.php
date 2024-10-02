@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DMasukResource\Pages;
 use App\Filament\Resources\DMasukResource\RelationManagers;
 use App\Models\DMasuk;
+use App\Models\Masuk;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -29,7 +30,7 @@ class DMasukResource extends Resource
                 ->maxLength(2),
                 Forms\Components\Select::make('kd_masuk')
                 ->label('Kode Masuk')
-                ->options(masuk::all()->pluck('kd_masuk', 'id'))
+                ->options(Masuk::all()->pluck('kd_masuk', 'id'))
                 ->searchable(),
                 Forms\Components\TextInput::make('kd_barang_beli')
                 ->label('Kode Barang Beli')
